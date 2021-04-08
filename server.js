@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 
 const indexRouter = require('./routes/index') // tell the app know where is the router - relative path
 const authorRouter = require('./routes/authors') // tell the app know where is the router - relative path
+const bookRouter = require('./routes/books') // tell the app know where is the router - relative path
 
 // connect to DATABASE
 mongoose.set('useUnifiedTopology', true)
@@ -29,5 +30,5 @@ app.use(expressLayouts) // tell the express application that we want to use layo
 app.use(express.static('public')) // Define the location of public files js css img
 app.use('/', indexRouter) // tell the app to use the indexRouter when asked for / route
 app.use('/authors', authorRouter) // every route inside author router is prepended with authors
-
+app.use('/books', bookRouter) // every route inside book router is prepended with books
 app.listen(process.env.PORT || 3000) // Tells the app listen on port from env or defaults to 3000
