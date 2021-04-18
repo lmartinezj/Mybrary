@@ -50,16 +50,14 @@ router.get('/new', async (req, res) => {
 // Create Book route
 router.post('/', upload.single('cover'), async (req, res) => {
     const fileName = req.file != null ? req.file.filename : null
-    const book = new Book(
-        {
+    const book = new Book({
             title: req.body.title,
             author: req.body.author,
             publishDate: new Date(req.body.publishDate),
             pageCount: req.body.pageCount,
             coverImageName: fileName,
             description: req.body.description
-        }
-    )
+        })
 
     try {
         const newBook = await book.save()

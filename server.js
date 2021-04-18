@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index') // tell the app know where is the router - relative path
 const authorRouter = require('./routes/authors') // tell the app know where is the router - relative path
@@ -28,6 +29,8 @@ app.use(express.urlencoded({ extended: true })) // Has to be implented before ap
 app.use(express.json())
 app.use(expressLayouts) // tell the express application that we want to use layouts
 app.use(express.static('public')) // Define the location of public files js css img
+app.use(methodOverride('_method'))
+
 app.use('/', indexRouter) // tell the app to use the indexRouter when asked for / route
 app.use('/authors', authorRouter) // every route inside author router is prepended with authors
 app.use('/books', bookRouter) // every route inside book router is prepended with books
