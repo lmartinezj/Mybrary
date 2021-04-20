@@ -5,6 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- filepond: A JavaScript library that can upload anything you throw at it, optimizes images for faster uploads, 
+        and offers a great, accessible, silky smooth user experience.
+
+        filepond file encode plugin: The file input field value can only be modified by the user by manually 
+        adding files (in one action). To circumvent this, we can encode files as base64 strings and add those 
+        strings to hidden input fields. Then we decode the strings on the server to get back to a file object.
+
+        filepond image preview plugin: renders a downscaled preview for dropped images
+
+        filepond image resize plugin: automatically calculates and adds resize information. The Image preview plugin 
+        uses this information to show the correct preview. 
+    -->
+
+    <!-- filepond css from CDN: add to document <head> -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+    <!-- filepond image preview css from CDN: add to document <head> after filepond css -->
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+
+
+    <!-- filepond image preview script from CDN: add before </body> before filepond script defer to load and run after the body renders -->
+    <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <!-- filepond image resize script add before </body> before filepond script defer to load and run after the body renders -->
+    <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <!-- filepond file encode plugin: add before </body> before filepond script defer to load and run after the body renders -->
+    <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <!-- filepond scripts add before </body> defer to load and run after the body renders -->
+    <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+    <!-- add our own script to setup filepond defer to load and run after the body renders -->
+    <script defer src="/javascripts/fileUpload.js"></script>
+    
+    
+
     <title>Document</title>
 </head>
 <body>
