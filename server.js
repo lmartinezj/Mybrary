@@ -25,7 +25,10 @@ app.set('view engine', 'ejs') // set view engine to ejs
 app.set('views', __dirname + '/views') // set the views folder
 app.set('layout', 'layouts/layout') // Define the layout file as a template for the rest of the views
 
-app.use(express.urlencoded({ extended: true })) // Has to be implented before app.use('/', indexRouter)
+app.use(express.urlencoded({ 
+    extended: false,
+    limit:  '10mb',
+})) // Has to be implented before app.use('/', indexRouter)
 app.use(express.json())
 app.use(expressLayouts) // tell the express application that we want to use layouts
 app.use(express.static('public')) // Define the location of public files js css img
